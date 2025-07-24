@@ -5,15 +5,15 @@ export const BotonAdd = React.memo(({incrementar}) => {
 
   console.log('Me estoy redibujando')
 
-  const [inputValue, setInputValue] = useState()
+  const [inputValue, setInputValue] = useState('')
 
   const handleInput = (e) => {
     setInputValue(e.target.value)
-    console.log(inputValue)
   }
 
   const onsubmit = (e) => {
     e.preventDefault()
+    
   } 
 
   return (
@@ -24,7 +24,7 @@ export const BotonAdd = React.memo(({incrementar}) => {
         value={inputValue}
         onChange={handleInput}
       />
-      <button onClick={() => incrementar(inputValue)}>Incrementar +</button>
+      <button onClick={() => incrementar(Number(inputValue))}>Incrementar +</button>
     </form>
   )
 })
