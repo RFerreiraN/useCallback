@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 export const BotonAdd = React.memo(({incrementar}) => {
 
@@ -16,9 +15,16 @@ export const BotonAdd = React.memo(({incrementar}) => {
     
   } 
 
+  const inputRef = useRef()
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
   return (
     <form onSubmit={onsubmit}>
       <input
+        ref={inputRef}
         type='text'
         placeholder='Ingresa un Número'
         value={inputValue}
